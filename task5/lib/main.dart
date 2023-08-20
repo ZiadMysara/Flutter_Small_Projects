@@ -86,7 +86,7 @@ class WhatsApp extends StatelessWidget {
                     child: Text(
                       "STATUS",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromRGBO(133, 167, 168, 1),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -108,7 +108,7 @@ class WhatsApp extends StatelessWidget {
                     child: Text(
                       "CALLS",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromRGBO(133, 167, 168, 1),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
