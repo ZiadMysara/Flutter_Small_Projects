@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CustomRow extends StatelessWidget {
+class CustomRow1 extends StatelessWidget {
   String RName;
   String RText;
   String RDate;
-  bool recive ;
-  CustomRow(
-      {super.key,
-      required this.RName,
-      required this.RText,
-      required this.RDate,
-      this.recive = false,
-      });
+  bool recive;
+  CustomRow1({
+    super.key,
+    required this.RName,
+    required this.RText,
+    required this.RDate,
+    this.recive = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +31,7 @@ class CustomRow extends StatelessWidget {
             RName,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          subtitle: Row(
-            children: [
-
-              const Icon(Icons.done_all, // Double checkmark icon
-                  color:
-                      Colors.blue, // Set the color to blue or any desired color
-                  size: 15 // Set the size of the icon
-                  ),
-                  SizedBox(width: 5),
-              
-              Text(RText, style: const TextStyle(color: Colors.black54)),
-            ],
-          ),
+          subtitle: Text(RText, style: const TextStyle(color: Colors.black54)),
           trailing: Text(
             RDate,
             style: const TextStyle(color: Colors.black54),

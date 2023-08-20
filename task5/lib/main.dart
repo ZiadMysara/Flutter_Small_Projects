@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task5/widgets/CustomRow.dart';
+import 'package:task5/widgets/CustomRow1.dart';
+import 'package:task5/widgets/CustomRow2.dart';
 
 void main() {
   ThemeData(useMaterial3: true);
@@ -118,26 +119,24 @@ class WhatsApp extends StatelessWidget {
           ),
           Column(
             children: [
-              CustomRow(
+              CustomRow1(
                   RName: "Ahmed Salah", RText: "Hello", RDate: "07:47 PM"),
-              CustomRow(
-                  RName: "User", RText: "Hello", RDate: "07:47 PM"),
-              CustomRow(
+              CustomRow1(RName: "User", RText: "Hello", RDate: "07:47 PM"),
+              CustomRow2(
                   RName: "User2", RText: "Hello User2", RDate: "07:47 PM"),
-              CustomRow(
-                  RName: "User3", RText: "Hello", RDate: "07:47 PM"),
-              CustomRow(
+              CustomRow1(RName: "User3", RText: "Hello", RDate: "07:47 PM"),
+              CustomRow2(
                   RName: "User4", RText: "Hello User4", RDate: "07:47 PM"),
-              CustomRow(
-                  RName: "User5", RText: "Hello", RDate: "07:47 PM"),
-              CustomRow(
+              CustomRow1(RName: "User5", RText: "Hello", RDate: "07:47 PM"),
+              CustomRow2(
                   RName: "User6", RText: "Hello User6", RDate: "07:47 PM"),
-              CustomRow(
-                  RName: "User7", RText: "Hello", RDate: "07:47 PM"),
+              CustomRow1(RName: "User7", RText: "Hello", RDate: "07:47 PM"),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text("Tap and hold on chat for more options",
-                    style: TextStyle(color: Color.fromRGBO(112, 112, 112, 1), fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                        color: Color.fromRGBO(112, 112, 112, 1),
+                        fontWeight: FontWeight.bold)),
               ),
             ],
           ),
