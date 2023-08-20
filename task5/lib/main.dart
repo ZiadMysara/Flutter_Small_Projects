@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: WhatsApp(),
     );
   }
@@ -121,16 +122,16 @@ class WhatsApp extends StatelessWidget {
             children: [
               CustomRow1(
                   RName: "Ahmed Salah", RText: "Hello", RDate: "07:47 PM"),
-              CustomRow1(RName: "User", RText: "Hello", RDate: "07:47 PM"),
+              CustomRow1(RName: "User", RText: "Hello", RDate: "7/10/23"),
               CustomRow2(
-                  RName: "User2", RText: "Hello User2", RDate: "07:47 PM"),
-              CustomRow1(RName: "User3", RText: "Hello", RDate: "07:47 PM"),
+                  RName: "User2", RText: "Hello User2", RDate: "7/10/23"),
+              CustomRow1(RName: "User3", RText: "Hello", RDate: "7/10/23"),
               CustomRow2(
-                  RName: "User4", RText: "Hello User4", RDate: "07:47 PM"),
-              CustomRow1(RName: "User5", RText: "Hello", RDate: "07:47 PM"),
+                  RName: "User4", RText: "Hello User4", RDate: "7/10/23"),
+              CustomRow1(RName: "User5", RText: "Hello", RDate: "7/10/23"),
               CustomRow2(
-                  RName: "User6", RText: "Hello User6", RDate: "07:47 PM"),
-              CustomRow1(RName: "User7", RText: "Hello", RDate: "07:47 PM"),
+                  RName: "User6", RText: "Hello User6", RDate: "7/10/23"),
+              CustomRow1(RName: "User7", RText: "Hello", RDate: "7/10/23"),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text("Tap and hold on chat for more options",
