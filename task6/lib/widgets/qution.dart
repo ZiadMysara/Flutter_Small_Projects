@@ -29,7 +29,7 @@ class _qutionState extends State<qution> {
         padding: EdgeInsets.all(15),
         alignment: Alignment.topLeft,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Color.fromRGBO(255, 255, 255, 0.5),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -45,10 +45,16 @@ class _qutionState extends State<qution> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
+
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CupertinoRadio(
-                      value: 0, groupValue: groupValue, onChanged: onChanged),
+                    
+                      inactiveColor: Color.fromRGBO(0, 0, 0, 0),
+
+                      value: 0,
+                      groupValue: groupValue,
+                      onChanged: onChanged),
                   const SizedBox(width: 10),
                   Text("${widget.answers[0]}",
                       style:
@@ -61,7 +67,10 @@ class _qutionState extends State<qution> {
               child: Row(
                 children: [
                   CupertinoRadio(
-                      value: 1, groupValue: groupValue, onChanged: onChanged),
+                      inactiveColor: Colors.grey[200],
+                      value: 1,
+                      groupValue: groupValue,
+                      onChanged: onChanged),
                   const SizedBox(width: 10),
                   Text("${widget.answers[1]}",
                       style:
@@ -74,7 +83,10 @@ class _qutionState extends State<qution> {
               child: Row(
                 children: [
                   CupertinoRadio(
-                      value: 2, groupValue: groupValue, onChanged: onChanged),
+                      inactiveColor: Colors.grey[200],
+                      value: 2,
+                      groupValue: groupValue,
+                      onChanged: onChanged),
                   const SizedBox(width: 10),
                   Text("${widget.answers[2]}",
                       style:
@@ -87,7 +99,10 @@ class _qutionState extends State<qution> {
               child: Row(
                 children: [
                   CupertinoRadio(
-                      value: 3, groupValue: groupValue, onChanged: onChanged),
+                      inactiveColor: Colors.grey[200],
+                      value: 3,
+                      groupValue: groupValue,
+                      onChanged: onChanged),
                   const SizedBox(width: 10),
                   Text("${widget.answers[3]}",
                       style:

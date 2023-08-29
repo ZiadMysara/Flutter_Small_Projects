@@ -9,9 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  List<String> answers = ["hello its me", "yo yo yo ", "UI Focused", "All of the above"];
+  List<String> answers = [
+    "hello its me",
+    "yo yo yo ",
+    "UI Focused",
+    "All of the above"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +24,17 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Form(
           key: formKey,
-          child: ListView(
+          child: Stack(
+
             children: [
-              qution(myText: "myText", answers: answers)
+              Image.asset('assets/img/QuizTime.jpg',
+                          fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+              ),
+              ListView(
+              children: [qution(myText: "myText", answers: answers)],
+            ),
             ],
           ),
         ));
