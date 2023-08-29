@@ -37,7 +37,7 @@ class WhatsApp extends StatelessWidget {
         ],
         elevation: 0.0,
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             height: 50,
@@ -131,6 +131,9 @@ class WhatsApp extends StatelessWidget {
               CustomRow1(RName: "User5", RText: "Hello", RDate: "7/10/23"),
               CustomRow2(
                   RName: "User6", RText: "Hello User6", RDate: "7/10/23"),
+              CustomRow1(RName: "User7", RText: "Hello", RDate: "7/10/23"),
+              CustomRow1(RName: "User7", RText: "Hello", RDate: "7/10/23"),
+              CustomRow1(RName: "User7", RText: "Hello", RDate: "7/10/23"),
               CustomRow1(RName: "User7", RText: "Hello", RDate: "7/10/23"),
               const Padding(
                 padding: EdgeInsets.all(8.0),
