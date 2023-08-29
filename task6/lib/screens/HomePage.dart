@@ -10,33 +10,63 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  List<String> answers = [
-    "hello its me",
-    "yo yo yo ",
-    "UI Focused",
-    "All of the above"
+  List<String> Questions = [
+    " What is the main programming language used in Flutter development?",
+    "Which widget in Flutter is used to create a scrollable list of children with a single child visible at a time?",
+    " In Flutter, what's the purpose of a 'BuildContext'?",
+    " What's the primary function of the 'setState' method in a Flutter Stateful widget?",
+    "Which widget is commonly used for displaying tabbed navigation in Flutter?",
+    " What's the purpose of a 'Key' in Flutter?"
   ];
+  List<List<String>> answers = [
+    ["Java", "Python", "Dart", "Swift"],
+    ["ListView", "GridView", "Column", "SingleChildScrollView"],
+    [
+      "To manage app state",
+      "To define the layout of widgets",
+      "To provide access to localization data",
+      "To identify the location of a widget in the widget tree"
+    ],
+    [
+      "To rebuild the widget tree and reflect changes",
+      "To create a new instance of the widget",
+      "To manage the app's navigation stack",
+      "To define the widget's initial state"
+    ],
+    ["TabView", "TabLayout", "TabBarView", "TabBar"],
+    [
+      "To provide a unique identifier for a widget",
+      "To define the visual properties of a widget",
+      "To determine the widget's layout constraints",
+      "To handle user interactions with a widget"
+    ]
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('HomePage'),
-        ),
         body: Form(
-          key: formKey,
-          child: Stack(
-
-            children: [
-              Image.asset('assets/img/QuizTime.jpg',
-                          fit: BoxFit.cover,
+      key: formKey,
+      child: Stack(
+        children: [
+          Image.asset(
+            'assets/img/QuizTime.jpg',
+            fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
-              ),
-              ListView(
-              children: [qution(myText: "myText", answers: answers)],
-            ),
+          ),
+          ListView(
+            children: [
+              qution(Questions: Questions[0], answers: answers[0]),
+              qution(Questions: Questions[1], answers: answers[1]),
+              qution(Questions: Questions[2], answers: answers[2]),
+              qution(Questions: Questions[3], answers: answers[3]),
+              qution(Questions: Questions[4], answers: answers[4]),
+              qution(Questions: Questions[5], answers: answers[5]),
             ],
           ),
-        ));
+        ],
+      ),
+    ));
   }
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task6/widgets/CustomRadio.dart';
 
 class qution extends StatefulWidget {
   static int num = 0;
-  String myText;
-  List<String> answers;
-  qution({super.key, required this.myText, required this.answers}) {
+  String Questions;
+  List answers;
+  qution({super.key, required this.Questions, required this.answers}) {
     num++;
   }
   int myNum = num;
@@ -15,11 +16,7 @@ class qution extends StatefulWidget {
 
 class _qutionState extends State<qution> {
   int groupValue = 0;
-  void onChanged(int? value) {
-    setState(() {
-      groupValue = value!;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,81 +32,15 @@ class _qutionState extends State<qution> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                "Q${widget.myNum}. ${widget.myText}",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
+            Text(
+              "Q${widget.myNum}. ${widget.Questions}",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CupertinoRadio(
-                    
-                      inactiveColor: Color.fromRGBO(0, 0, 0, 0),
-
-                      value: 0,
-                      groupValue: groupValue,
-                      onChanged: onChanged),
-                  const SizedBox(width: 10),
-                  Text("${widget.answers[0]}",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  CupertinoRadio(
-                      inactiveColor: Colors.grey[200],
-                      value: 1,
-                      groupValue: groupValue,
-                      onChanged: onChanged),
-                  const SizedBox(width: 10),
-                  Text("${widget.answers[1]}",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  CupertinoRadio(
-                      inactiveColor: Colors.grey[200],
-                      value: 2,
-                      groupValue: groupValue,
-                      onChanged: onChanged),
-                  const SizedBox(width: 10),
-                  Text("${widget.answers[2]}",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  CupertinoRadio(
-                      inactiveColor: Colors.grey[200],
-                      value: 3,
-                      groupValue: groupValue,
-                      onChanged: onChanged),
-                  const SizedBox(width: 10),
-                  Text("${widget.answers[3]}",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
+            SizedBox(height: 10),
+            CustomRadio(answers: widget.answers[0], groupValue: groupValue, value: 1),
+            CustomRadio(answers: widget.answers[1], groupValue: groupValue, value: 2),
+            CustomRadio(answers: widget.answers[2], groupValue: groupValue, value: 3),
+            CustomRadio(answers: widget.answers[3], groupValue: groupValue, value: 4),
           ],
         ),
       ),
