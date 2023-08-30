@@ -25,7 +25,7 @@ class _qutionState extends State<qution> {
             padding: const EdgeInsets.all(15),
             alignment: Alignment.topLeft,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(255, 255, 255, 0.5),
+              color: const Color.fromRGBO(255, 255, 255, 0.6),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -95,7 +95,7 @@ class _qutionState extends State<qution> {
                   child: Row(
                     children: [
                       CupertinoRadio(
-                        
+
                         inactiveColor: Colors.grey[200],
                         value: 3,
                         groupValue: widget.groupValue,
