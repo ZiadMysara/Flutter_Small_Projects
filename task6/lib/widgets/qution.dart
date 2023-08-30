@@ -30,7 +30,7 @@ class _qutionState extends State<qution> {
             padding: const EdgeInsets.all(15),
             alignment: Alignment.topLeft,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(255, 255, 255, 0.6),
+              color: const Color.fromRGBO(255, 255, 255, 0.8),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(

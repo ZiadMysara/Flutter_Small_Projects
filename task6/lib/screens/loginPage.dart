@@ -100,6 +100,7 @@ class _loginPageState extends State<loginPage> {
                 SizedBox(
                   height: 70,
                   child: TextFormField(
+                    
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     obscureText: isPasswordVisible1,
                     showCursor: true,
