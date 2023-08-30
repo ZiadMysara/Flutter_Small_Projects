@@ -4,14 +4,14 @@ This is Autortication System
 
 ## Getting Started
 
-this is RegistrationPage
+## this is RegistrationPage
 ![Project Logo](assets/ProjectImages/RegistrationPage.png)
-##
-this is LogInPage
+
+## this is LogInPage
 ![Project Logo](assets/ProjectImages/LogInPage.png)
-##
-this is ForgotPasswordPage
+
+## this is ForgotPasswordPage
 ![Project Logo](assets/ProjectImages/ForgotPasswordPage.png)
-##
-this is QuizPage
+
+## this is QuizePage
 ![Project Logo](assets/ProjectImages/QuizPage.png)
