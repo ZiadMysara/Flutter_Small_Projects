@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         "HomePage": (context) => HomePage(),
         "ForgotPasswordPage": (context) => const ForgotPasswordPage(),
       },
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

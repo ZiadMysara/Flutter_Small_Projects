@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -13,20 +11,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
   List<String> Gender = ["Male", "Female"];
   List<String> University = ["AUC", "FCI", "MUST"];
   List<String> Grade = ["Grade 1", "Grade 2", "Grade 3", "Grade 4"];
-  bool _isDropdownOpen = false;
+  final bool _isDropdownOpen = false;
   String? emailController;
   String? passwordController;
-  String? _conformPasswordController;
-  String? _phoneController;
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isPasswordVisible1 = false;
   bool _isPasswordVisible2 = false;
   List emailAndPassword = [
     {
-      "ziad@gmail.com": "33136636",
+      "ziad@gmail.com": "01230123",
     },
     {
-      "yousef@gmail.com": "01148127358",
+      "yousef@gmail.com": "0123456",
     }
   ];
   @override
@@ -41,6 +37,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const SizedBox(height: 10),
               SizedBox(
@@ -78,8 +75,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             });
                           },
                           icon: isPasswordVisible1
-                              ? Icon(Icons.remove_red_eye)
-                              : Icon(Icons.visibility_off)),
+                              ? const Icon(Icons.remove_red_eye)
+                              : const Icon(Icons.visibility_off)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       labelText: "Password"),
@@ -109,20 +106,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             });
                           },
                           icon: _isPasswordVisible2
-                              ? Icon(Icons.remove_red_eye)
-                              : Icon(Icons.visibility_off)),
+                              ? const Icon(Icons.remove_red_eye)
+                              : const Icon(Icons.visibility_off)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       labelText: "Password"),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please enter your Password";
-                    } else if (value.length >= 8) {
+                    } else if (value.length >= 12) {
                       return "Please enter a valid Password";
                     }
                     try {
-                      if (value != passwordController!)
+                      if (value != passwordController!) {
                         return "Please enter the same Password";
+                      }
                     } catch (e) {
                       return "Please enter the same Password";
                     }
@@ -166,7 +164,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 110,
                     child: DropdownButtonFormField(
                       decoration: InputDecoration(
@@ -181,7 +179,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       onChanged: (value) {},
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 110,
                     child: DropdownButtonFormField(
                       decoration: InputDecoration(
@@ -233,10 +231,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         bool temp;
                         temp = _formKey.currentState!.validate();
                         if (temp) {
-                          emailAndPassword
-                              .add({emailController!: passwordController!});
-                          Navigator.pushNamed(context, "loginPage",
-                              arguments: emailAndPassword);
+                          setState(() {
+                            emailAndPassword
+                                .add({emailController!: passwordController!});
+                            Navigator.pushNamed(context, "loginPage",
+                                arguments: emailAndPassword);
+                          });
                         }
                       },
                       style: ButtonStyle(
@@ -284,6 +284,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 35),
             ],
           ),
         ),

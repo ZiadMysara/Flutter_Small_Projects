@@ -145,6 +145,7 @@ class _loginPageState extends State<loginPage> {
                           if (temp && temp2) {
                             Navigator.pushNamed(context, "HomePage");
                           } else {
+                            ScaffoldMessenger.of(context).clearSnackBars();
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Wrong password')),
                             );
