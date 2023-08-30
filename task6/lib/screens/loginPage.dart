@@ -67,6 +67,7 @@ class _loginPageState extends State<loginPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Login Page'),
+          centerTitle: true,
         ),
         body: Form(
           key: _formKey,
@@ -164,6 +165,14 @@ class _loginPageState extends State<loginPage> {
                                 TextStyle(fontSize: 20, color: Colors.white)),
                       ),
                     ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(onPressed: (){
+                      Navigator.pushNamed(context, "ForgotPasswordPage", arguments: emailAndPassword);
+                    }, child: Text("Forgot Password?")),
                   ],
                 ),
               ],

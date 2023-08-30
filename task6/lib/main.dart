@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:task6/screens/ForgotPasswordPage.dart';
 import 'package:task6/screens/HomePage.dart';
 import 'package:task6/screens/RegistrationPage.dart';
 import 'package:task6/screens/loginPage.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         "RegistrationPage": (context) => const RegistrationPage(),
         "loginPage": (context) => loginPage(),
         "HomePage": (context) => HomePage(),
+        "ForgotPasswordPage": (context) => const ForgotPasswordPage(),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

@@ -32,12 +32,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Registration Page"),
+        centerTitle: true,
+      ),
       body: Form(
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: [
+              const SizedBox(height: 10),
               SizedBox(
                 height: 70,
                 child: TextFormField(
