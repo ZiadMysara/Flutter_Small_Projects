@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:task6/screens/HomePage.dart';
 import 'package:task6/screens/RegistrationPage.dart';
 import 'package:task6/screens/loginPage.dart';
-import 'package:task6/widgets/Email_input_field.dart';
-import 'package:task6/widgets/Password_input_field.dart';
+
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class qution extends StatefulWidget {
-  static int num = 0;
+  static int num = 1;
   String Questions;
   List answers;
   int groupValue = 0;

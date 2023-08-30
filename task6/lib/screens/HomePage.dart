@@ -45,57 +45,60 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(),
         body: Form(
-      key: formKey,
-      child: Stack(
-        children: [
-          Image.asset(
-            'assets/img/QuizTime.jpg',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          ListView(
-            physics: const BouncingScrollPhysics(),
+          key: formKey,
+          child: Stack(
             children: [
-              qution(Questions: Questions[0], answers: answers[0]),
-              qution(Questions: Questions[1], answers: answers[1]),
-              qution(Questions: Questions[2], answers: answers[2]),
-              qution(Questions: Questions[3], answers: answers[3]),
-              qution(Questions: Questions[4], answers: answers[4]),
-              qution(Questions: Questions[5], answers: answers[5]),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 60.0, right: 60.0, top: 20.0, bottom: 60.0),
-                  child: TextButton(
-                    onPressed: () {
-                      bool temp;
-                      temp = formKey.currentState!.validate();
-                      if (!temp) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text('please answer all questions')));
-                      }
-                    },
-                    style: ButtonStyle(
-                        shape: const MaterialStatePropertyAll(
-                            RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(18)))),
-                        padding:
-                            const MaterialStatePropertyAll(EdgeInsets.all(16)),
-                        backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.black)),
-                    child: const Text("Submit",
-                        style: TextStyle(fontSize: 20, color: Colors.white)),
+              Image.asset(
+                'assets/img/QuizTime.jpg',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
+              ListView(
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  qution(Questions: Questions[0], answers: answers[0]),
+                  qution(Questions: Questions[1], answers: answers[1]),
+                  qution(Questions: Questions[2], answers: answers[2]),
+                  qution(Questions: Questions[3], answers: answers[3]),
+                  qution(Questions: Questions[4], answers: answers[4]),
+                  qution(Questions: Questions[5], answers: answers[5]),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 60.0, right: 60.0, top: 20.0, bottom: 60.0),
+                      child: TextButton(
+                        onPressed: () {
+                          bool temp;
+                          temp = formKey.currentState!.validate();
+                          if (!temp) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content:
+                                        Text('please answer all questions')));
+                          }
+                        },
+                        style: ButtonStyle(
+                            shape: const MaterialStatePropertyAll(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(18)))),
+                            padding: const MaterialStatePropertyAll(
+                                EdgeInsets.all(16)),
+                            backgroundColor: MaterialStateColor.resolveWith(
+                                (states) => Colors.black)),
+                        child: const Text("Submit",
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.white)),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
-    ));
+        ));
   }
 }

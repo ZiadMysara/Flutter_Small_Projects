@@ -1,6 +1,6 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:task6/widgets/Email_input_field.dart';
-import 'package:task6/widgets/Password_input_field.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -14,10 +14,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
   List<String> University = ["AUC", "FCI", "MUST"];
   List<String> Grade = ["Grade 1", "Grade 2", "Grade 3", "Grade 4"];
   bool _isDropdownOpen = false;
-  TextEditingController? emailController;
-  TextEditingController? passwordController;
-  TextEditingController? _conformPasswordController;
-  TextEditingController? _phoneController;
+  String? emailController;
+  String? passwordController;
+  String? _conformPasswordController;
+  String? _phoneController;
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isPasswordVisible1 = false;
   bool _isPasswordVisible2 = false;
@@ -36,20 +36,64 @@ class _RegistrationPageState extends State<RegistrationPage> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          child: ListView(
             children: [
-              E_mail_input_field(emailController: emailController),
-              const SizedBox(height: 10),
-              Password_input_field(
-                  passwordController: passwordController,
-                  isPasswordVisible1: isPasswordVisible1),
+              SizedBox(
+                height: 70,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  showCursor: true,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      labelText: "E_mail"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please enter your email";
+                    } else if (!value.contains("@")) {
+                      return "Please enter a valid email";
+                    } else {
+                      emailController = value;
+                    }
+                  },
+                ),
+              ),
               const SizedBox(height: 10),
               SizedBox(
                 height: 70,
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: _conformPasswordController,
+                  obscureText: isPasswordVisible1,
+                  showCursor: true,
+                  decoration: InputDecoration(
+                      suffix: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isPasswordVisible1 = !isPasswordVisible1;
+                            });
+                          },
+                          icon: isPasswordVisible1
+                              ? Icon(Icons.remove_red_eye)
+                              : Icon(Icons.visibility_off)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      labelText: "Password"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please enter your Password";
+                    } else if (value.length >= 12) {
+                      return "Please enter a valid Password";
+                    } else {
+                      passwordController = value;
+                    }
+                  },
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 70,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   showCursor: true,
                   obscureText: _isPasswordVisible2,
                   decoration: InputDecoration(
@@ -72,7 +116,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       return "Please enter a valid Password";
                     }
                     try {
-                      if (value != passwordController!.text)
+                      if (value != passwordController!)
                         return "Please enter the same Password";
                     } catch (e) {
                       return "Please enter the same Password";
@@ -85,7 +129,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 height: 70,
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: _phoneController,
                   showCursor: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -153,13 +196,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
               const Padding(
                 padding: EdgeInsets.all(30),
-                child: Text(
-                  "Grade",
-                  style: TextStyle(fontSize: 18),
+                child: Center(
+                  child: Text(
+                    "Grade",
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
               Container(
-                width: 200,
+                margin: const EdgeInsets.only(left: 80, right: 80),
                 child: DropdownButtonFormField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -183,6 +228,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         bool temp;
                         temp = _formKey.currentState!.validate();
                         if (temp) {
+                          emailAndPassword
+                              .add({emailController!: passwordController!});
                           Navigator.pushNamed(context, "loginPage",
                               arguments: emailAndPassword);
                         }
@@ -205,7 +252,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
               const Padding(
                 padding: EdgeInsets.all(10),
-                child: Text("OR", style: TextStyle(fontSize: 18)),
+                child:
+                    Center(child: Text("OR", style: TextStyle(fontSize: 18))),
               ),
               Row(
                 children: [
