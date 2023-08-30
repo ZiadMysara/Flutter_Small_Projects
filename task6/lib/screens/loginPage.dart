@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class loginPage extends StatefulWidget {
   loginPage({super.key});
 
@@ -100,7 +98,6 @@ class _loginPageState extends State<loginPage> {
                 SizedBox(
                   height: 70,
                   child: TextFormField(
-                    
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     obscureText: isPasswordVisible1,
                     showCursor: true,
@@ -172,9 +169,12 @@ class _loginPageState extends State<loginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    TextButton(onPressed: (){
-                      Navigator.pushNamed(context, "ForgotPasswordPage", arguments: emailAndPassword);
-                    }, child: Text("Forgot Password?")),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "ForgotPasswordPage",
+                              arguments: emailAndPassword);
+                        },
+                        child: Text("Forgot Password?")),
                   ],
                 ),
               ],

@@ -42,7 +42,6 @@ class ForgotPasswordPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
-            
             children: [
               SizedBox(
                 height: 70,
@@ -76,25 +75,27 @@ class ForgotPasswordPage extends StatelessWidget {
                         temp = _formKey.currentState!.validate();
                         if (!temp) {
                           ScaffoldMessenger.of(context).clearSnackBars();
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                              content: Text('please Enter valid email')));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('please Enter valid email')));
                         } else {
                           ScaffoldMessenger.of(context).clearSnackBars();
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                              content:
-                                  Text('password reset link sent to your email')));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      'password reset link sent to your email')));
                         }
                       },
                       style: ButtonStyle(
-                              shape: const MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(8)))),
-                              padding: const MaterialStatePropertyAll(
-                                  EdgeInsets.all(12)),
-                              backgroundColor: MaterialStateColor.resolveWith(
-                                  (states) =>
-                                      const Color.fromRGBO(255, 217, 0, 1))),
+                          shape: const MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)))),
+                          padding: const MaterialStatePropertyAll(
+                              EdgeInsets.all(12)),
+                          backgroundColor: MaterialStateColor.resolveWith(
+                              (states) =>
+                                  const Color.fromRGBO(255, 217, 0, 1))),
                       child: const Text("Submit",
                           style: TextStyle(fontSize: 20, color: Colors.white)),
                     ),
