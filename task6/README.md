@@ -4,4 +4,4 @@ This is Autortication System
 
 ## Getting Started
 
-![Project Logo](assests/ProjectImages/RegistrationPage.png)
+![Project Logo](assets/ProjectImages/RegistrationPage.png)
