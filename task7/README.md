@@ -6,4 +6,4 @@ ToDo List
 
 ## This the app
 
-![Project Logo](ToDoList.png.png)
+![Project Logo](ToDoList.png)
