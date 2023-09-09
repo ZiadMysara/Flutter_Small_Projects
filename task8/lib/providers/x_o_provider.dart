@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class X_O_Provider extends ChangeNotifier {
+  String MyFinalResult = "";
   List<String> X_O = [
     "",
     "",
@@ -62,6 +63,7 @@ class X_O_Provider extends ChangeNotifier {
       park[i] = false;
       X_O[i] = "";
     }
+    MyFinalResult = "";
     notifyListeners();
   }
 
@@ -116,9 +118,18 @@ class X_O_Provider extends ChangeNotifier {
     return 'Still no winner';
   }
 
+  void setMyFinalResult(String x) {
+    MyFinalResult = x;
+    notifyListeners();
+  }
+
   void showWinner(String winner, BuildContext context) {
+    for (var i = 0; i < 9; i++) {
+      park[i] = true;
+    }
+    setMyFinalResult(winner);
+    notifyListeners();
     showDialog(
-        barrierDismissible: false,
         context: context,
         builder: (context) => AlertDialog(
               content: Column(
@@ -130,17 +141,6 @@ class X_O_Provider extends ChangeNotifier {
                     style: const TextStyle(
                         fontSize: 50, fontWeight: FontWeight.bold),
                   )),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      reset();
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.restart_alt,),
-                    label: const Text(
-                      "restart",
-                      style: TextStyle(),
-                    ),
-                  ),
                 ],
               ),
             ));
